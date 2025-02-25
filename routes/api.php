@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\SensorController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -23,4 +24,26 @@ Route::controller(UserController::class)
 
         Route::delete("/{id}", 'destroy')
             ->name("user.destroy");
+    });
+
+Route::controller(SensorController::class)
+    ->prefix('/sensor')
+    ->group(function () {
+        Route::post("/", 'store')
+            ->name("sensor.store");
+
+        Route::get("/", 'index')
+            ->name("sensor.index");
+
+        Route::get("/{id}", 'show')
+            ->name("sensor.show");
+
+        Route::put("/{id}", 'update')
+            ->name("sensor.update");
+
+        Route::patch("/{id}", 'patch')
+            ->name("sensor.patch");
+
+        Route::delete("/{id}", 'destroy')
+            ->name("sensor.destroy");
     });
