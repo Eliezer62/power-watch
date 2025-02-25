@@ -1,0 +1,24 @@
+<?php
+
+namespace App\Exceptions;
+
+use Carbon\Carbon;
+use Illuminate\Http\Request;
+use Symfony\Component\HttpFoundation\Response;
+
+class UserCreationException extends \Exception
+{
+    public function __construct(string $msg, int $code) {
+        parent::__construct($msg, $code);
+    }
+
+    public function render(Request $request): Response
+    {
+        return response()->json(
+            [
+                "msg" => parent::getMessage(),
+                "timestamp" => Carbon::now(),
+                'status' => 409,
+            ], 409);
+    }
+}
