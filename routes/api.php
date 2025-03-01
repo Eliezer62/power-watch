@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ReportController;
 use App\Http\Controllers\SensorController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -46,4 +47,26 @@ Route::controller(SensorController::class)
 
         Route::delete("/{id}", 'destroy')
             ->name("sensor.destroy");
+    });
+
+Route::controller(ReportController::class)
+    ->prefix('/report')
+    ->group(function () {
+        Route::post("/", 'store')
+            ->name("report.store");
+
+        Route::get("/", 'index')
+            ->name("report.index");
+
+        Route::get("/{id}", 'show')
+            ->name("report.show");
+
+        Route::put("/{id}", 'update')
+            ->name("report.update");
+
+        Route::patch("/{id}", 'patch')
+            ->name("report.patch");
+
+        Route::delete("/{id}", 'destroy')
+            ->name("report.destroy");
     });
