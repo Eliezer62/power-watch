@@ -13,7 +13,6 @@ return new class extends Migration
     {
         Schema::create('reports', function (Blueprint $table) {
             $table->uuid("id")->primary("pk_reports");
-            $table->timestamps('timestamp');
             $table->decimal("voltage", 10, 3);
             $table->uuid("sensor_id")->index();
             $table->timestamps();

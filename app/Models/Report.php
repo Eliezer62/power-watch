@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use App\Enum\SensorStatus;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -31,7 +30,6 @@ class Report extends Model
     ];
 
     protected $casts = [
-        'timestamp' => 'timestamp',
         'voltage' => 'float',
     ];
 
