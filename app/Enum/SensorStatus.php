@@ -6,6 +6,6 @@ enum SensorStatus: string
 {
     case Active = "active";
     case Inactive = "inactive";
-    case Manutention = "manutention";
-    case Instalation = "instalation";
+    case Maintenance = "maintenance";
+    case Installation = "installation";
 }

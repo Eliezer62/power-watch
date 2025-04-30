@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string("name")->unique('uc_sensors_name');
             $table->string("model")->nullable();
             $table->enum("status", [
-                "active", "inactive", "manutention", "instalation"
+                "active", "inactive", "maintenance", "installation"
             ])->default("active");
             $table->string("local");
             $table->text("notes")->nullable();
