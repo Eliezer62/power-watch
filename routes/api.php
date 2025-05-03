@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ReportController;
 use App\Http\Controllers\SensorController;
 use App\Http\Controllers\UserController;
@@ -69,4 +70,14 @@ Route::controller(ReportController::class)
 
         Route::delete("/{id}", 'destroy')
             ->name("report.destroy");
+    });
+
+Route::controller(DashboardController::class)
+    ->prefix('/dashboard')
+    ->group(function () {
+        Route::get("/not-working", 'notWorking')
+            ->name("dashboard.not-working");
+
+        Route::get('/reports', 'reports')
+            ->name("dashboard.reports");
     });
